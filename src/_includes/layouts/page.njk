@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+
+    <link rel="stylesheet" href="/assets/compiled.css"/>
+    <script defer src="/assets/compiled.js"></script>
+
+    {% if scripts %}
+      <script type="module">
+        {% set js %}{% include scripts %}{% endset %}
+        {{ js | jsmin | safe }}
+      </script>
+    {% endif %}
+
+    {% if styles %}
+      <style>
+        {% set css %}{% include styles %}{% endset %}
+        {{ css | cssmin }}
+      </style>
+    {% endif %}
+  </head>
+
+  <body>
+    {{ content | safe}}
+  </body>
+
+</html>

@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  button {
+    @apply 
+      p-3 rounded-full aspect-square
+      text-sm leading-none
+      bg-slate-300 hover:bg-white active:bg-blue-300
+      cursor-pointer
+      ring ring-transparent hover:ring-blue-500 active:ring-blue-700
+  }
+}

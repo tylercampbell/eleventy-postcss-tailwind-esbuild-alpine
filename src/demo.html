@@ -1,0 +1,25 @@
+---
+layout: layouts/page.njk
+permalink: /
+title: Home
+author: Ty
+
+scripts: assets-inline/demo.js
+styles:  assets-inline/demo.css
+---
+<h1 
+  class="font-serif text-3xl text-emerald-500 text-center my-8 bg-slate-700" 
+  x-data="{ message: '{{ author }} ❤️s Alpine' }" 
+  x-text="message"
+>
+  Alpine should replace this text 🤞
+</h1>
+
+<div 
+  class="w-fit mx-auto"
+  x-data="{ count: 0 }" 
+>
+  <button @click="count--">👎</button>
+  <span class="font-mono text-xl font-black text-emerald-300 mx-4" x-text="count"></span>
+  <button @click="count++">👍</button>
+</div>

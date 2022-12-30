@@ -1,0 +1,28 @@
+{
+  "scripts": {
+    "clean": "rimraf _site",
+    "serve:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./src/_includes/assets-global/_compiled/compiled.css --watch",
+    "build:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./src/_includes/assets-global/_compiled/compiled.css",
+    "serve:esbuild": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./src/_includes/assets-global/_compiled/compiled.js --bundle --watch",
+    "build:esbuild": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./src/_includes/assets-global/_compiled/compiled.js --bundle --minify",
+    "serve:eleventy": "eleventy --serve --incremental",
+    "build:eleventy": "eleventy",
+    "dev":   "cross-env NODE_ENV=development npm-run-all clean build:postcss -p serve:*",
+    "build": "cross-env NODE_ENV=production  npm-run-all -s build:*"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.0-beta.1",
+    "alpinejs": "^3.10.5",
+    "tailwindcss": "^3.2.4"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.16.12",
+    "html-minifier": "^4.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.20",
+    "postcss-cli": "^10.1.0",
+    "postcss-lightningcss": "^0.6.0",
+    "rimraf": "^3.0.2"
+  }
+}
