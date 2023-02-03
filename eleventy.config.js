@@ -7,8 +7,12 @@ module.exports = function (eleventyConfig) {
 
   // passhthrough static files
   eleventyConfig.addPassthroughCopy({ "./static": "/" });
-  // postcss & esbuild output here for more reliable livereload
-  eleventyConfig.addPassthroughCopy({ "./src/_includes/assets-global/_compiled/": "assets" });
+
+
+  // reload dev server from postcss & esbuild output in package.json
+  eleventyConfig.setServerOptions({
+    watch: ["_site/assets/*.{js,css}"],
+  });
 
 
   // process css (inline)

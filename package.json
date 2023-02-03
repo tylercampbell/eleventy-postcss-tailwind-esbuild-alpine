@@ -1,13 +1,13 @@
 {
   "scripts": {
     "clean": "rimraf _site",
-    "serve:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./src/_includes/assets-global/_compiled/compiled.css --watch",
-    "build:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./src/_includes/assets-global/_compiled/compiled.css",
-    "serve:esbuild": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./src/_includes/assets-global/_compiled/compiled.js --bundle --watch",
-    "build:esbuild": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./src/_includes/assets-global/_compiled/compiled.js --bundle --minify",
+    "serve:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./_site/assets/compiled.css --watch --verbose",
+    "build:postcss": "postcss ./src/_includes/assets-global/styles.css -o ./_site/assets/compiled.css",
+    "serve:esbuild": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./_site/assets/compiled.js --bundle --watch",
+    "build:esbuild": "esbuild ./src/_includes/assets-global/scripts.js --outfile=./_site/assets/compiled.js --bundle --minify",
     "serve:eleventy": "eleventy --serve --incremental",
     "build:eleventy": "eleventy",
-    "dev":   "cross-env NODE_ENV=development npm-run-all clean build:postcss -p serve:*",
+    "dev":   "cross-env NODE_ENV=development npm-run-all clean -p serve:*",
     "build": "cross-env NODE_ENV=production  npm-run-all -s build:*"
   },
   "dependencies": {
@@ -23,6 +23,6 @@
     "postcss": "^8.4.20",
     "postcss-cli": "^10.1.0",
     "postcss-lightningcss": "^0.6.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^4.1.2"
   }
 }
